@@ -8,7 +8,7 @@ After that, compiles all changes into your RPO (Protheus).
 Please fell free to use, modify, distribute or contribute. Allways respecting all directives of GPLv3.
 
 ## Requirements:
-* tds-ld (https://github.com/totvs/tds-ls)
+* tds-ls (https://github.com/totvs/tds-ls)
 * git (https://git-scm.com/)
 
 ## Features (WIP):
