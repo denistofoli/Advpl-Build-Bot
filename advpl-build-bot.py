@@ -50,8 +50,8 @@ def make_ini():
     f.write('secure=0\n')
     f.write('build=AUTO\n')
     f.write('environment=' + BUILD_ENV + '\n')
-    f.write('user=admin\n')
-    f.write('psw=\n')
+    f.write('user=' + BUILD_USER + '\n')
+    f.write('psw=' + BUILD_PASS + '\n')
 
     f.write('[compile]\n')
     f.write('action=compile\n')
