@@ -14,8 +14,9 @@ Please fell free to use, modify, distribute or contribute. Allways respecting al
 ## Features (WIP):
 - [x] Git Pull for update project folder
 - [x] Write param file to compile only modified sources
-- [ ] Windows compatibility
+- [x] Windows compatibility
 - [ ] Mac compatibility
+- [ ] Configuration file
 - [ ] Stop / Start Protheus Services
 - [ ] Copy RPO to another Protheus Services
 

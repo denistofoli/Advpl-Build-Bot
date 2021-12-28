@@ -1,17 +1,26 @@
 import subprocess
+import platform
 import os
 from datetime import datetime
 
 
-BUILD_PATH = '/home/project/protheus'  # Allways Full Path
+# Allways Full Path
+BUILD_PATH = '/home/project/protheus' # (For Windows use '\\' like c:\\totvs\\sources)
+BUILD_INCLUDES = '/home/Protheus/include'
+
+# Git
 BUILD_BRANCH = 'master'
 BUILD_INTERVAL = '10.day'  # see https://git-scm.com/docs/git-log
-BUILD_INCLUDES = '/home/Protheus/include'  # Allways Full Path
+
+# AppServer
 BUILD_SERVER = '127.0.0.1'
 BUILD_PORT = '1234'
 BUILD_ENV = 'Tests'
 BUILD_USER = 'admin'
 BUILD_PASS = ''
+
+# Internal script usage
+BUILD_COMPILER = ''
 BUILD_FILES = ''
 BUILD_LOGS = []
 
@@ -26,7 +35,7 @@ def git_pull():
 def load_changed_files():
     files = ''
     last_update = ['git', 'log', BUILD_BRANCH, '--since=' + BUILD_INTERVAL,
-                   '--name-only', '--line-prefix=' + BUILD_PATH + '/']
+                   '--name-only', '--line-prefix=' + BUILD_PATH]
     std_in = subprocess.run(last_update, stdout=subprocess.PIPE,
                             cwd=BUILD_PATH).stdout.decode('UTF-8').__str__().split('\n')
 
@@ -86,6 +95,17 @@ def write_log():
 
 
 if __name__ == '__main__':
+    if platform.system() == 'Linux':
+        BUILD_COMPILER = '/advpls'
+
+        if BUILD_PATH[-1] != '/':
+            BUILD_PATH += '/'
+    elif platform.system() == 'Windows':
+        BUILD_COMPILER = '\\advpls.exe'
+
+        if BUILD_PATH[-2] != '\\':
+            BUILD_PATH += '\\'
+
     git_pull()
     BUILD_FILES = load_changed_files()
     make_ini()

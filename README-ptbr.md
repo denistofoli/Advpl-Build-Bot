@@ -14,7 +14,8 @@ Fique à vontade para usar, modificar, distribuir ou contribuir. Respeitando sem
 ## Recursos (WIP):
 - [x] Git Pull para atualização da pasta do projeto
 - [x] Grava o arquivo param para compilar apenas os fontes modificados
-- [ ] Compatibilidade com Windows
+- [x] Compatibilidade com Windows
 - [ ] Compatibilidade com Mac
+- [ ] Arquivo de configuração
 - [ ] Parar / Iniciar os Serviços Protheus
 - [ ] Copiar RPO para outro serviço Protheus
