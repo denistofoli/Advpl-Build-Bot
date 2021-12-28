@@ -18,19 +18,19 @@ BUILD_LOGS = []
 
 def git_pull():
     list_files = ['git', 'pull']
-    linhas = subprocess.run(list_files, stdout=subprocess.PIPE,
+    std_in = subprocess.run(list_files, stdout=subprocess.PIPE,
                             cwd=BUILD_PATH).stdout.decode('UTF-8').__str__().split('\n')
-    add_log('GIT', linhas)
+    add_log('GIT', std_in)
 
 
 def load_changed_files():
     files = ''
     last_update = ['git', 'log', BUILD_BRANCH, '--since=' + BUILD_INTERVAL,
                    '--name-only', '--line-prefix=' + BUILD_PATH + '/']
-    linhas = subprocess.run(last_update, stdout=subprocess.PIPE,
+    std_in = subprocess.run(last_update, stdout=subprocess.PIPE,
                             cwd=BUILD_PATH).stdout.decode('UTF-8').__str__().split('\n')
 
-    for x in linhas:
+    for x in std_in:
         if '.prw' in x.lower() and x not in files:
             files += ',' if files.__len__() > 0 else ''
             files += x
@@ -65,17 +65,17 @@ def make_ini():
 def make_build():
     if BUILD_FILES.strip().__len__() > 0:
         make = [os.getcwd() + '/advpls', '--tdsCli=build-bot.ini']
-        linhas = subprocess.run(make, stdout=subprocess.PIPE,
+        std_in = subprocess.run(make, stdout=subprocess.PIPE,
                                 cwd=os.getcwd()).stdout.decode('UTF-8').__str__().split('\n')
-        add_log('BUILD', linhas)
+        add_log('BUILD', std_in)
     else:
         add_log('BUILD', ['No files to compile'])
 
 
-def add_log(prefix, linhas):
-    for linha in linhas:
-        if linha.strip().__len__() > 0:
-            BUILD_LOGS.append('[' + datetime.now().__str__() + ']' + '[' + prefix + '] ' + linha + '\n')
+def add_log(prefix, lines):
+    for line in lines:
+        if line.strip().__len__() > 0:
+            BUILD_LOGS.append('[' + datetime.now().__str__() + ']' + '[' + prefix + '] ' + line + '\n')
 
 
 def write_log():
