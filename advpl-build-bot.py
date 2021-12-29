@@ -1,7 +1,7 @@
-import subprocess
-import platform
-import os
-from datetime import datetime
+from build_log import Build_Log
+from build_system import Build_System
+from build_git import Build_Git
+from build_advpl import Build_Advpl
 
 
 # Allways Full Path
@@ -19,95 +19,18 @@ BUILD_ENV = 'Tests'
 BUILD_USER = 'admin'
 BUILD_PASS = ''
 
+
 # Internal script usage
-BUILD_COMPILER = ''
-BUILD_FILES = ''
-BUILD_LOGS = []
-
-
-def git_pull():
-    list_files = ['git', 'pull']
-    std_in = subprocess.run(list_files, stdout=subprocess.PIPE,
-                            cwd=BUILD_PATH).stdout.decode('UTF-8').__str__().split('\n')
-    add_log('GIT', std_in)
-
-
-def load_changed_files():
-    files = ''
-    last_update = ['git', 'log', BUILD_BRANCH, '--since=' + BUILD_INTERVAL,
-                   '--name-only', '--line-prefix=' + BUILD_PATH]
-    std_in = subprocess.run(last_update, stdout=subprocess.PIPE,
-                            cwd=BUILD_PATH).stdout.decode('UTF-8').__str__().split('\n')
-
-    for x in std_in:
-        if '.prw' in x.lower() and x not in files:
-            files += ',' if files.__len__() > 0 else ''
-            files += x
-
-    return files
-
-
-def make_ini():
-    f = open("build-bot.ini", "w")
-
-    f.write('showConsoleOutput=true\n')
-
-    f.write('[authentication]\n')
-    f.write('action=authentication\n')
-    f.write('server=' + BUILD_SERVER + '\n')
-    f.write('port=' + BUILD_PORT + '\n')
-    f.write('secure=0\n')
-    f.write('build=AUTO\n')
-    f.write('environment=' + BUILD_ENV + '\n')
-    f.write('user=' + BUILD_USER + '\n')
-    f.write('psw=' + BUILD_PASS + '\n')
-
-    f.write('[compile]\n')
-    f.write('action=compile\n')
-    f.write('program=' + BUILD_FILES + '\n')
-    f.write('recompile=T\n')
-    f.write('includes=' + BUILD_INCLUDES + '\n')
-
-    f.close()
-
-
-def make_build():
-    if BUILD_FILES.strip().__len__() > 0:
-        make = [os.getcwd() + '/advpls', '--tdsCli=build-bot.ini']
-        std_in = subprocess.run(make, stdout=subprocess.PIPE,
-                                cwd=os.getcwd()).stdout.decode('UTF-8').__str__().split('\n')
-        add_log('BUILD', std_in)
-    else:
-        add_log('BUILD', ['No files to compile'])
-
-
-def add_log(prefix, lines):
-    for line in lines:
-        if line.strip().__len__() > 0:
-            BUILD_LOGS.append('[' + datetime.now().__str__() + ']' + '[' + prefix + '] ' + line + '\n')
-
-
-def write_log():
-    f = open("build-bot.log", "w")
-    for x in BUILD_LOGS:
-        f.write(x)
-    f.close()
+log = Build_Log()
+system = Build_System(BUILD_PATH)
+git = Build_Git(system, BUILD_BRANCH, BUILD_INTERVAL)
+advpl = Build_Advpl(system,  BUILD_SERVER, BUILD_PORT, BUILD_ENV, BUILD_INCLUDES, BUILD_USER, BUILD_PASS)
 
 
 if __name__ == '__main__':
-    if platform.system() == 'Linux':
-        BUILD_COMPILER = '/advpls'
+    log.add(system.os, ['Starting Advpl Build Bot'])
+    log.add('GIT', git.pull())
+    log.add('BUILD',advpl.build(git.get_changed_files()))
+    log.add(system.os, ['Finish job'])
+    log.write_log()
 
-        if BUILD_PATH[-1] != '/':
-            BUILD_PATH += '/'
-    elif platform.system() == 'Windows':
-        BUILD_COMPILER = '\\advpls.exe'
-
-        if BUILD_PATH[-2] != '\\':
-            BUILD_PATH += '\\'
-
-    git_pull()
-    BUILD_FILES = load_changed_files()
-    make_ini()
-    make_build()
-    write_log()

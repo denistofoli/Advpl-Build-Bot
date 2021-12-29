@@ -2,3 +2,4 @@ advpls
 build-bot.ini
 build-bot.log
 console_error.log
+__pycache__
