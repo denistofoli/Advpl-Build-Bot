@@ -9,7 +9,7 @@ objConfig  = config.read_json("build-bot-config.json")
 
 # Allways Full Path
 BUILD_PATH = objConfig["configs"][0]["totvsServer"]["path"]  # (For Windows use '\\' like c:\\totvs\\sources)
-BUILD_INCLUDES = objConfig["configs"][0]["totvsServer"]["include"] 
+BUILD_INCLUDES = objConfig["configs"][0]["totvsServer"]["includes"] 
 
 # Git
 BUILD_BRANCH = objConfig["configs"][0]["git"]["branch"] 

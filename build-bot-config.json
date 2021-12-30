@@ -11,7 +11,7 @@
     },
     "git":{
       "branch":"master",
-      "internal":"10.day"  
+      "interval":"10.day"  
     }},
     {"totvsServer":{
         "path":"/home/project/protheus",
@@ -24,6 +24,6 @@
     },
     "git":{
       "branch":"dev",
-      "internal":"12.day"  
+      "interval":"12.day"  
     }}
 ]}
