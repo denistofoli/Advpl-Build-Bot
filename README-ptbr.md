@@ -16,6 +16,6 @@ Fique à vontade para usar, modificar, distribuir ou contribuir. Respeitando sem
 - [x] Grava o arquivo param para compilar apenas os fontes modificados
 - [x] Compatibilidade com Windows
 - [ ] Compatibilidade com Mac
-- [ ] Arquivo de configuração
+- [x] Arquivo de configuração
 - [ ] Parar / Iniciar os Serviços Protheus
 - [ ] Copiar RPO para outro serviço Protheus
