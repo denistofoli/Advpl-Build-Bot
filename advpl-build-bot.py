@@ -2,22 +2,25 @@ from build_log import Build_Log
 from build_system import Build_System
 from build_git import Build_Git
 from build_advpl import Build_Advpl
+from build_config import Build_Config
 
+config = Build_Config
+objConfig  = config.read_json("build-bot-config.json")
 
 # Allways Full Path
-BUILD_PATH = '/home/project/protheus' # (For Windows use '\\' like c:\\totvs\\sources)
-BUILD_INCLUDES = '/home/Protheus/include'
+BUILD_PATH = objConfig["configs"][0]["totvsServer"]["path"]  # (For Windows use '\\' like c:\\totvs\\sources)
+BUILD_INCLUDES = objConfig["configs"][0]["totvsServer"]["include"] 
 
 # Git
-BUILD_BRANCH = 'master'
-BUILD_INTERVAL = '10.day'  # see https://git-scm.com/docs/git-log
+BUILD_BRANCH = objConfig["configs"][0]["git"]["branch"] 
+BUILD_INTERVAL = objConfig["configs"][0]["git"]["interval"] # see https://git-scm.com/docs/git-log
 
 # AppServer
-BUILD_SERVER = '127.0.0.1'
-BUILD_PORT = '1234'
-BUILD_ENV = 'Tests'
-BUILD_USER = 'admin'
-BUILD_PASS = ''
+BUILD_SERVER = objConfig["configs"][0]["totvsServer"]["server"] 
+BUILD_PORT = objConfig["configs"][0]["totvsServer"]["port"] 
+BUILD_ENV = objConfig["configs"][0]["totvsServer"]["env"] 
+BUILD_USER = objConfig["configs"][0]["totvsServer"]["user"] 
+BUILD_PASS = objConfig["configs"][0]["totvsServer"]["pass"] 
 
 
 # Internal script usage
