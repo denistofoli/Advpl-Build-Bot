@@ -16,7 +16,7 @@ Please fell free to use, modify, distribute or contribute. Allways respecting al
 - [x] Write param file to compile only modified sources
 - [x] Windows compatibility
 - [ ] Mac compatibility
-- [ ] Configuration file
+- [x] Configuration file
 - [ ] Stop / Start Protheus Services
 - [ ] Copy RPO to another Protheus Services
 
