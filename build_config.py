@@ -1,7 +1,5 @@
-#from jsonschema import validate
 import json
 import os.path
-
 
 class Build_Config:
 
@@ -83,7 +81,3 @@ class Build_Config:
         if control:
             with open(arq_json, 'r', encoding='utf8') as f:
                 return json.load(f)
-
-    #data = ler_json('build-bot-config.json')
-    #validate(data, schema)
-    #print(data["configs"][0]["totvsServer"]["path"])

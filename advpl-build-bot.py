@@ -8,19 +8,19 @@ config = Build_Config
 objConfig  = config.read_json("build-bot-config.json")
 
 # Allways Full Path
-BUILD_PATH = objConfig["configs"][0]["totvsServer"]["path"] # '/home/project/protheus' # (For Windows use '\\' like c:\\totvs\\sources)
-BUILD_INCLUDES = objConfig["configs"][0]["totvsServer"]["include"] #'/home/Protheus/include'
+BUILD_PATH = objConfig["configs"][0]["totvsServer"]["path"]  # (For Windows use '\\' like c:\\totvs\\sources)
+BUILD_INCLUDES = objConfig["configs"][0]["totvsServer"]["include"] 
 
 # Git
-BUILD_BRANCH = objConfig["configs"][0]["git"]["branch"] #'master'
-BUILD_INTERVAL = objConfig["configs"][0]["git"]["interval"] # '10.day'  # see https://git-scm.com/docs/git-log
+BUILD_BRANCH = objConfig["configs"][0]["git"]["branch"] 
+BUILD_INTERVAL = objConfig["configs"][0]["git"]["interval"] # see https://git-scm.com/docs/git-log
 
 # AppServer
-BUILD_SERVER = objConfig["configs"][0]["totvsServer"]["server"] # '127.0.0.1'
-BUILD_PORT = objConfig["configs"][0]["totvsServer"]["port"] #'1234'
-BUILD_ENV = objConfig["configs"][0]["totvsServer"]["env"] # 'Tests'
-BUILD_USER = objConfig["configs"][0]["totvsServer"]["user"] # 'admin'
-BUILD_PASS = objConfig["configs"][0]["totvsServer"]["pass"] # ''
+BUILD_SERVER = objConfig["configs"][0]["totvsServer"]["server"] 
+BUILD_PORT = objConfig["configs"][0]["totvsServer"]["port"] 
+BUILD_ENV = objConfig["configs"][0]["totvsServer"]["env"] 
+BUILD_USER = objConfig["configs"][0]["totvsServer"]["user"] 
+BUILD_PASS = objConfig["configs"][0]["totvsServer"]["pass"] 
 
 
 # Internal script usage
