@@ -1,6 +1,7 @@
 {
    "configs" : [
        {"totvsServer":{
+        "name": "Servidor de Testes",
         "path":"/home/project/protheus",
         "includes":"/home/Protheus/include",
         "server":"127.0.0.1",
@@ -14,7 +15,8 @@
       "interval":"10.day"  
     }},
     {"totvsServer":{
-        "path":"/home/project/protheus",
+      "name": "Producao",
+      "path":"/home/project/protheus",
         "includes":"/home/Protheus/include",
         "server":"192.168.0.1",
         "port":"1235",
