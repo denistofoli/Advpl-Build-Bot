@@ -1,8 +1,8 @@
 import json
 import os.path
+from model_config import Model_Config
 
 class Build_Config:
-
     schema = {                
                 "type": "object",
                 "properties": {
@@ -76,8 +76,38 @@ class Build_Config:
                 ]
             }
     
-    def read_json(arq_json):
-        control = os.path.isfile(arq_json)    
-        if control:
-            with open(arq_json, 'r', encoding='utf8') as f:
-                return json.load(f)
+
+    def __init__(self, json_file):
+        self.__json_file = json_file
+        self.__message = ''
+        self.__configs = self.__read_json()
+
+
+    def __read_json(self):
+        if os.path.isfile(self.__json_file):
+            configs = []
+            with open(self.__json_file, 'r', encoding='utf8') as f:
+                configs_json = json.load(f)
+                for c in configs_json["configs"]:
+                    configs.append(Model_Config(c["totvsServer"]["name"],
+                                                c["totvsServer"]["path"],
+                                                c["totvsServer"]["includes"],
+                                                c["git"]["branch"],
+                                                c["git"]["interval"],
+                                                c["totvsServer"]["server"],
+                                                c["totvsServer"]["port"],
+                                                c["totvsServer"]["env"],
+                                                c["totvsServer"]["user"],
+                                                c["totvsServer"]["pass"]))
+            self.__message = "Config file loaded!"
+            return configs
+        else:
+            self.__message = "Error loading config file!"
+            return []
+
+
+    @property
+    def configs(self): return self.__configs
+
+    @property
+    def message(self): return self.__message

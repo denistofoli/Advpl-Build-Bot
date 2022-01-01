@@ -4,23 +4,23 @@ from build_git import Build_Git
 from build_advpl import Build_Advpl
 from build_config import Build_Config
 
-config = Build_Config
-objConfig  = config.read_json("build-bot-config.json")
+
+configs = Build_Config("build-bot-config.json")
 
 # Allways Full Path
-BUILD_PATH = objConfig["configs"][0]["totvsServer"]["path"]  # (For Windows use '\\' like c:\\totvs\\sources)
-BUILD_INCLUDES = objConfig["configs"][0]["totvsServer"]["includes"] 
+BUILD_PATH = configs.configs[0].path  # (For Windows use '\\' like c:\\totvs\\sources)
+BUILD_INCLUDES = configs.configs[0].includes 
 
 # Git
-BUILD_BRANCH = objConfig["configs"][0]["git"]["branch"] 
-BUILD_INTERVAL = objConfig["configs"][0]["git"]["interval"] # see https://git-scm.com/docs/git-log
+BUILD_BRANCH = configs.configs[0].branch
+BUILD_INTERVAL = configs.configs[0].interval # see https://git-scm.com/docs/git-log
 
 # AppServer
-BUILD_SERVER = objConfig["configs"][0]["totvsServer"]["server"] 
-BUILD_PORT = objConfig["configs"][0]["totvsServer"]["port"] 
-BUILD_ENV = objConfig["configs"][0]["totvsServer"]["env"] 
-BUILD_USER = objConfig["configs"][0]["totvsServer"]["user"] 
-BUILD_PASS = objConfig["configs"][0]["totvsServer"]["pass"] 
+BUILD_SERVER = configs.configs[0].server 
+BUILD_PORT = configs.configs[0].port 
+BUILD_ENV = configs.configs[0].env 
+BUILD_USER = configs.configs[0].user 
+BUILD_PASS = configs.configs[0].passwd 
 
 
 # Internal script usage
@@ -36,4 +36,3 @@ if __name__ == '__main__':
     log.add('BUILD',advpl.build(git.get_changed_files()))
     log.add(system.os, ['Finish job'])
     log.write_log()
-
