@@ -8,6 +8,7 @@ After that, compiles all changes into your RPO (Protheus).
 Please fell free to use, modify, distribute or contribute. Allways respecting all directives of GPLv3.
 
 ## Requirements:
+* Python 3.9 or higher
 * tds-ls (https://github.com/totvs/tds-ls)
 * git (https://git-scm.com/)
 
