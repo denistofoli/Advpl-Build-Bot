@@ -15,6 +15,9 @@ class Build_Config:
                             "totvsServer": {
                             "type": "object",
                             "properties": {
+                                "name": {
+                                "type": "string"
+                                },
                                 "path": {
                                 "type": "string"
                                 },
@@ -38,6 +41,7 @@ class Build_Config:
                                 }
                             },
                             "required": [
+                                "name"
                                 "path",
                                 "includes",
                                 "server",
