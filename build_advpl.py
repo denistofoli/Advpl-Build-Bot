@@ -15,15 +15,18 @@ class Build_Advpl:
     def build(self, files):
         log_return = []
 
-        if files.strip().__len__() > 0:
-            self.__make_ini(files)
+        if os.path.isfile(self.__system.compiler):
+            if files.strip().__len__() > 0:
+                self.__make_ini(files)
 
-            make = [self.__system.compiler, f'--tdsCli={self.__ini_file}']
-            log_return = self.__system.run(make)
+                make = [self.__system.compiler, f'--tdsCli={self.__ini_file}']
+                log_return = self.__system.run(make)
 
-            os.remove(self.__ini_file)
+                os.remove(self.__ini_file)
+            else:
+                log_return = ['No files to compile']
         else:
-            log_return = ['No files to compile']
+            log_return = [f'Totvs Binary not found {self.__system.compiler}']
     
         return log_return
 
