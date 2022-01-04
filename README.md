@@ -12,6 +12,10 @@ Please fell free to use, modify, distribute or contribute. Allways respecting al
 * tds-ls (https://github.com/totvs/tds-ls)
 * git (https://git-scm.com/)
 
+## Quick Start
+* [English](quick-start.md)
+* [Portuguese](quick-start-ptbr.md)
+
 ## Features (WIP):
 - [x] Git Pull for update project folder
 - [x] Write param file to compile only modified sources

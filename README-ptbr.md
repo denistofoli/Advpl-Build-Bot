@@ -12,6 +12,10 @@ Fique à vontade para usar, modificar, distribuir ou contribuir. Respeitando sem
 * tds-ls (https://github.com/totvs/tds-ls)
 * git (https://git-scm.com/)
 
+## Quick Start
+* [Ingles](quick-start.md)
+* [Portugues](quick-start-ptbr.md)
+
 ## Recursos (WIP):
 - [x] Git Pull para atualização da pasta do projeto
 - [x] Grava o arquivo param para compilar apenas os fontes modificados
