@@ -11,6 +11,8 @@
 Faça o download do binário referente ao seu sistema operacional, e coloque na mesma pasta do script (apenas o binário)
 
 #### 5. Configure build-bot-config.json
+**Importante:** Para Windows use ```\\``` dessa forma ```c:\\totvs\\sources```
+
 Exemplo
 ```json
 {
