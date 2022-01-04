@@ -1,17 +1,17 @@
 # Quick Start
 
-#### 1. Download and install [Python3](https://www.python.org/) interpreter.
+#### 1. Faça o download e instale o interpretador [Python3](https://www.python.org/).
 
-#### 2. Download and install [Git](https://git-scm.com/)
+#### 2. Faça o download e instale o [Git](https://git-scm.com/)
 
-#### 3. Clone this project
+#### 3. Clone o projeto
 ```git clone https://github.com/denistofoli/Advpl-Build-Bot.git```
 
-#### 4. Download Totvs Binary Compiler [tds-cli](https://github.com/totvs/tds-ls)
-Download version for your operating system, and put into script folder (only binary)
+#### 4. Faça o download do binario de compilação da Totvs [tds-cli](https://github.com/totvs/tds-ls)
+Faça o download do binário referente ao seu sistema operacional, e coloque na mesma pasta do script (apenas o binário)
 
 #### 5. Configure build-bot-config.json
-Exemple
+Exemplo
 ```json
 {
    "configs" : [
@@ -32,7 +32,7 @@ Exemple
 ]}
 ```
 
-#### 6. Run script
+#### 6. Execute o script
 ```python3 advpl-build-bot.py```
 
-For automatic builds, schedule this instruction
+Para builds automatizadas, deixe essa instrução agendada
