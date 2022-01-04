@@ -34,6 +34,9 @@ Exemplo
 ]}
 ```
 
+Para pular as etapas do git, deixe branch vazio ```"branch":""```
+
+
 #### 6. Execute o script
 ```python3 advpl-build-bot.py```
 

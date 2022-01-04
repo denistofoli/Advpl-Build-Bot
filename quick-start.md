@@ -34,6 +34,9 @@ Exemple
 ]}
 ```
 
+To skip git steps, leave branch empty ```"branch":""```
+
+
 #### 6. Run script
 ```python3 advpl-build-bot.py```
 
