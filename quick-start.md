@@ -7,10 +7,13 @@
 #### 3. Clone this project
 ```git clone https://github.com/denistofoli/Advpl-Build-Bot.git```
 
-#### 4. Download Totvs Binary Compiler [tds-cli](https://github.com/totvs/tds-ls)
+#### 4. Install Python Requeriments
+```pip install requirement.txt```
+
+#### 5. Download Totvs Binary Compiler [tds-cli](https://github.com/totvs/tds-ls)
 Download version for your operating system, and put into script folder (only binary)
 
-#### 5. Configure build-bot-config.json
+#### 6. Configure build-bot-config.json
 **Important:** For Windows use ```\\``` like ```c:\\totvs\\sources```
 
 Exemple
@@ -37,7 +40,7 @@ Exemple
 To skip git steps, leave branch empty ```"branch":""```
 
 
-#### 6. Run script
+#### 7. Run script
 ```python3 advpl-build-bot.py```
 
 For automatic builds, schedule this instruction

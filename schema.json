@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+       "configs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+             "type": "object",
+             "properties": {
+                "totvsServer": {
+                   "type": "object",
+                   "properties": {
+                      "name": {"type": "string"},
+                      "path": {"type": "string"},
+                      "includes": {"type": "string"},
+                      "server": {"type": "string"},
+                      "port": {"type": "string"},
+                      "env": {"type": "string"},
+                      "user": {"type": "string"},
+                      "pass": {"type":"string"}
+                   },
+                   "required": [
+                      "name",
+                      "path",
+                      "includes",
+                      "server",
+                      "port",
+                      "env",
+                      "user",
+                      "pass"
+                   ]
+                },
+                "git": {
+                    "type": "object",
+                    "properties": {
+                        "branch": {"type": "string"},
+                        "interval": {"type": "string"}
+                    },
+                    "required": ["branch", "interval"]
+                }
+             },
+             "required": ["totvsServer", "git"]
+          }
+       }
+    },
+    "required": ["configs"]
+ }
