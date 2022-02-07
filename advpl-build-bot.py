@@ -24,7 +24,8 @@ def main():
 
         log.add('PROJECT', [config.name])
         log.add(system.os, ['Starting Advpl Build Bot'])
-        log.add('GIT', git.pull())
+        log.add('GIT CHECKOUT', git.checkout())
+        log.add('GIT PULL', git.pull())
         log.add('BUILD',advpl.build(git.get_changed_files()))
         log.add(system.os, ['Finish'])
 

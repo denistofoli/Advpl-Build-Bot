@@ -6,6 +6,17 @@ class Build_Git:
         self.__changed_files = self.__system.build_path
 
 
+    def checkout(self): 
+        log_return = []
+        
+        if self.__branch:
+            log_return = self.__system.run(['git', 'checkout', self.__branch], self.__system.build_path)
+        else:
+            log_return = ['Checkout Skipped']
+        
+        return log_return
+
+
     def pull(self): 
         log_return = []
         
