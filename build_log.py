@@ -12,7 +12,7 @@ class Build_Log:
 
 
     def write_log(self):
-        f = open("build-bot.log", "w")
+        f = open(f"build-bot-{datetime.now().strftime('%Y%m%d-%H%M%S')}.log", "w")
         for x in self.__build_logs:
             f.write(x)
         
