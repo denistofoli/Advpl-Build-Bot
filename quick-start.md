@@ -8,7 +8,7 @@
 ```git clone https://github.com/denistofoli/Advpl-Build-Bot.git```
 
 #### 4. Install Python Requeriments
-```pip install -r requirement.txt```
+```pip install -r requirements.txt```
 
 #### 5. Download Totvs Binary Compiler [tds-cli](https://github.com/totvs/tds-ls)
 Download version for your operating system, and put into script folder (only binary)
