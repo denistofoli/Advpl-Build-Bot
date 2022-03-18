@@ -33,6 +33,7 @@ class Build_Git:
             last_update = ['git',
                            'log',
                            self.__branch,
+                           '-m',
                            f'--since={self.__exp_interval}',
                            '--name-only',
                            f'--line-prefix={self.__system.build_path}'
