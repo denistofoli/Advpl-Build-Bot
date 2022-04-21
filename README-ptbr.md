@@ -7,6 +7,8 @@ Depois disso, compila todas as alterações em seu RPO (Protheus).
 
 Fique à vontade para usar, modificar, distribuir ou contribuir. Respeitando sempre todas as diretivas da GPLv3.
 
+[Veja o video](https://www.youtube.com/watch?v=r39IbTtD0Ts)
+
 ## Requisitos:
 * Python 3.9 ou superior
 * tds-ls (https://github.com/totvs/tds-ls)
