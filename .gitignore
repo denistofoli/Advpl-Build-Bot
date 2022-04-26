@@ -4,3 +4,4 @@ build-bot.log
 console_error.log
 __pycache__
 .venv
+build-bot-*.log
