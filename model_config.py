@@ -1,10 +1,11 @@
 class Model_Config:
-    def __init__(self, name, path, includes, branch, interval, server, port, env, user, passwd):
+    def __init__(self, name, path, includes, branch, interval, server, port, env, user, passwd, show_type = "m"):
         self.__name = name
         self.__path = path
         self.__includes = includes
         self.__branch = branch
         self.__interval = interval
+        self.__show_type = show_type
         self.__server = server
         self.__port = port
         self.__env = env
@@ -40,3 +41,6 @@ class Model_Config:
 
     @property
     def passwd(self): return self.__passwd
+
+    @property
+    def show_type(self): return self.__show_type

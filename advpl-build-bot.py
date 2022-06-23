@@ -13,7 +13,7 @@ def main():
 
     for config in configs.configs:
         system = Build_System(config.path)
-        git = Build_Git(system, config.branch, config.interval)
+        git = Build_Git(system, config.branch, config.interval, config.show_type)
         advpl = Build_Advpl(system,
                             config.server,
                             config.port,

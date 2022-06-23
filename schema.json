@@ -34,7 +34,8 @@
                     "type": "object",
                     "properties": {
                         "branch": {"type": "string"},
-                        "interval": {"type": "string"}
+                        "interval": {"type": "string"},
+                        "showtype:": {"type": "string"}
                     },
                     "required": ["branch", "interval"]
                 }

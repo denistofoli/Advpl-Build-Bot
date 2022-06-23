@@ -43,7 +43,8 @@ class Build_Config:
                                                    c["totvsServer"]["port"],
                                                    c["totvsServer"]["env"],
                                                    c["totvsServer"]["user"],
-                                                   c["totvsServer"]["pass"]))
+                                                   c["totvsServer"]["pass"],
+                                                   c["git"]["showtype"] if "showtype" in c["git"] else "m"))
             self.__message = "Config file loaded!"
         except ValidationError as e:
             self.__message = f"Validation: {e.message}"
