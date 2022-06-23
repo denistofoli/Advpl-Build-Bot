@@ -1,3 +1,5 @@
+from os.path import exists
+
 class Build_Git:
     def __init__(self, system, branch, exp_interval):
         self.__system = system
@@ -43,7 +45,7 @@ class Build_Git:
             self.__changed_files = ''
 
             for x in out:
-                if '.prw' in x.lower() and x not in self.__changed_files:
+                if '.prw' in x.lower() and x not in self.__changed_files and exists(x):
                     self.__changed_files += ',' if self.__changed_files.__len__() > 0 else ''
                     self.__changed_files += x
 
