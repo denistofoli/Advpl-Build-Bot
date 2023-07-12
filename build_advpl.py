@@ -19,7 +19,7 @@ class Build_Advpl:
             if files.strip().__len__() > 0:
                 self.__make_ini(files)
 
-                make = [self.__system.compiler, f'--tdsCli={self.__ini_file}']
+                make = [self.__system.compiler, 'cli', self.__ini_file]
                 log_return = self.__system.run(make)
 
                 os.remove(self.__ini_file)
