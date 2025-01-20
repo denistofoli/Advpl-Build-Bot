@@ -51,7 +51,7 @@ class Build_Git:
             self.__changed_files = ''
 
             for x in out:
-                if '.prw' in x.lower() and x not in self.__changed_files and exists(x):
+                if ('.prw' in x.lower() or '.aph' in x.lower()) and x not in self.__changed_files and exists(x):
                     self.__changed_files += ',' if self.__changed_files.__len__() > 0 else ''
                     self.__changed_files += x
 
