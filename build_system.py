@@ -7,7 +7,7 @@ class Build_System:
     def __init__(self, path = os.getcwd()):
         self.__os = platform.system()
         self.__build_path = self.__path_check(path)
-        self.__compiler = os.getcwd() + ('/advpls' if self.os == 'Linux' else '\\advpls.exe')
+        self.__compiler = os.getcwd() + ('/advpls' if self.os == 'Linux' or self.os == 'Darwin' else '\\advpls.exe')
 
 
     def run(self, command, path=os.getcwd()):
@@ -18,7 +18,7 @@ class Build_System:
 
 
     def __path_check(self, path):
-        if self.os == 'Linux':
+        if self.os == 'Linux' or self.os == 'Darwin':
             if path[-1] != '/':
                 path += '/'
 
