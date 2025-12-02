@@ -41,6 +41,8 @@ Para pular as etapas do git, deixe branch vazio ```"branch":""```
 
 
 #### 7. Execute o script
-```python3 advpl-build-bot.py```
+```python3 advpl-build-bot.py <env_name>```
+
+Caso o nome do ambiente não seja informado, o build ocorrerá para todos.
 
 Para builds automatizadas, deixe essa instrução agendada

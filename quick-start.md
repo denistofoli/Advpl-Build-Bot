@@ -41,6 +41,8 @@ To skip git steps, leave branch empty ```"branch":""```
 
 
 #### 7. Run script
-```python3 advpl-build-bot.py```
+```python3 advpl-build-bot.py <env_name>```
+
+if environment name not in the args, all environments will be run.
 
 For automatic builds, schedule this instruction
