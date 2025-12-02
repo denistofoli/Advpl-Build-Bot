@@ -13,7 +13,7 @@ def main():
     log.add('CONFIG', [configs.message])
 
     for config in configs.configs:
-        if not sys.argv[1] or config.name == sys.argv[1]:
+        if len(sys.argv[1]) <= 1 or config.name == sys.argv[1]:
             system = Build_System(config.path)
             git = Build_Git(system, config.branch, config.interval, config.show_type)
             advpl = Build_Advpl(system,
