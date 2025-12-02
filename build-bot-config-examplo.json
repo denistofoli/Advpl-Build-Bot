@@ -1,6 +1,7 @@
 {
    "configs" : [
        {"totvsServer":{
+        "name": "Environment Name",
         "path":"/home/project/protheus",
         "includes":"/home/Protheus/include",
         "server":"127.0.0.1",
@@ -11,9 +12,10 @@
     },
     "git":{
       "branch":"master",
-      "internal":"10.day"  
+      "interval":"10.day"  
     }},
     {"totvsServer":{
+        "name": "Environment Name",
         "path":"/home/project/protheus",
         "includes":"/home/Protheus/include",
         "server":"192.168.0.1",
@@ -24,6 +26,6 @@
     },
     "git":{
       "branch":"dev",
-      "internal":"12.day"  
+      "interval":"12.day"  
     }}
 ]}
